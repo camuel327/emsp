@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: emsp
+  profiles:
+    active: ${SPRING_PROFILE:dev}
+  flyway:
+    schemas: emsp
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  config-location: classpath:mybatis-config.xml
