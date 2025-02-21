@@ -51,6 +51,7 @@ jobs:
       # 触发服务器部署脚本
       - name: Trigger server deployment script
         run: |
+          ls -al
           scp target/*.jar root@${{ secrets.SERVER_HOST }}:/app/target
           scp Dockerfile root@${{ secrets.SERVER_HOST }}:/app
           ssh root@${{ secrets.SERVER_HOST }} "cd /app && docker build -t ${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }} . || true"
