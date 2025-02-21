@@ -41,6 +41,9 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
+      - name: Debug SSH agent
+        run: ssh-add -l
+
       # 初始化 knownhosts
       - name: Setup knownhosts
         run: ssh-keyscan ${{ secrets.SERVER_HOST }} >> ~/.ssh/known_hosts
