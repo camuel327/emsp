@@ -51,7 +51,7 @@ jobs:
           ssh root@${{ secrets.SERVER_HOST }} "rm -rf /app/target/* || true"
           scp target/*.jar root@${{ secrets.SERVER_HOST }}:/app/target
           scp Dockerfile root@${{ secrets.SERVER_HOST }}:/app
-          ssh root@${{ secrets.SERVER_HOST }} "cd /app && docker build -t ${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }} . || true"
+          ssh root@${{ secrets.SERVER_HOST }} "cd /app && docker build --no-cache=true -t ${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }} . || true"
           ssh root@${{ secrets.SERVER_HOST }} "docker stop ${{ env.IMAGE_NAME }} || true"
           ssh root@${{ secrets.SERVER_HOST }} "docker rm ${{ env.IMAGE_NAME }} || true"
           ssh root@${{ secrets.SERVER_HOST }} "docker run -p ${{ env.PORT }}:${{ env.PORT}} --name ${{ env.IMAGE_NAME }} --network ${{ env.DOCKER_NETWORK }} --network-alias ${{ env.IMAGE_NAME }} -e SPRING_PROFILE=${{ env.SPRING_PROFILE }} -d ${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}"
