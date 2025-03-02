@@ -3,13 +3,13 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.example.emsp.mapper.TokenMapper">
+<mapper namespace="com.example.emsp.domain.token.infrastructure.mapper.TokenMapper">
 
-    <select id="getTokenById" resultType="com.example.emsp.model.po.TokenPO">
+    <select id="getTokenById" resultType="com.example.emsp.domain.token.entity.Token">
         select * from token where id = #{id}
     </select>
 
-    <insert id="insertToken" parameterType="com.example.emsp.model.po.TokenPO"
+    <insert id="insertToken" parameterType="com.example.emsp.domain.token.entity.Token"
             keyProperty="id" useGeneratedKeys="true">
         insert into token (status, type, value)
         values (#{status}, #{type}, #{value})
@@ -19,7 +19,7 @@
         update token set status = #{status}, last_updated = NOW() where id = #{id}
     </update>
 
-    <select id="pageTokens" resultType="com.example.emsp.model.po.TokenPO">
+    <select id="pageTokens" resultType="com.example.emsp.domain.token.entity.Token">
         SELECT * FROM token
     </select>
 

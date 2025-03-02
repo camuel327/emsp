@@ -1,7 +1,7 @@
 package com.example.emsp.execption;
 
-import com.example.emsp.model.enums.Errors;
-import com.example.emsp.model.resp.ResultBody;
+import com.example.emsp.common.enums.Errors;
+import com.example.emsp.api.model.resp.ResultBody;
 import org.springframework.core.annotation.Order;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;

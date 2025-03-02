@@ -3,9 +3,9 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.example.emsp.mapper.AccountTokenRelMapper">
+<mapper namespace="com.example.emsp.domain.token.infrastructure.mapper.AccountTokenRelMapper">
 
-    <insert id="insertAccountTokenRel" parameterType="com.example.emsp.model.po.AccountTokenRelPO"
+    <insert id="insertAccountTokenRel" parameterType="com.example.emsp.domain.token.entity.AccountTokenRel"
             keyProperty="id" useGeneratedKeys="true">
         insert into account_token_rel (account_id, token_Id)
         values (#{accountId}, #{tokenId})
